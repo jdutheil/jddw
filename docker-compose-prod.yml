@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql
+    command: ['--default-authentication-plugin=mysql_native_password']
+    environment:
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_USER=${DATABASE_USER}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DATABASE_ROOT_PASSWORD}
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./database/data:/var/lib/mysql
+    restart: always
+
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=${DATABASE_ROOT_PASSWORD}
+
+  php:
+    container_name: 'php-fpm'
+    build:
+      context: ./docker/php
+    environment:
+      - APP_ENV=${APP_ENV}
+      - APP_SECRET=${APP_SECRET}
+      - DATABASE_URL=mysql://${DATABASE_USER}:${DATABASE_PASSWORD}@database:3306/${DATABASE_NAME}?serverVersion=5.7
+    volumes:
+      - ${APP_FOLDER}:/var/www
+    depends_on:
+      - mysql
+
+  nginx:
+    container_name: 'nginx'
+    build:
+      context: ./docker/nginx
+    volumes:
+      - ${APP_FOLDER}:/var/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/logs:/var/log
+    depends_on:
+      - php
+    ports:
+      - '8081:80'
+
+  client:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    ports:
+      - '80:80'
+    volumes:
+      - ./frontend:/app

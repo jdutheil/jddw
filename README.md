@@ -6,5 +6,4 @@ Frontend ReactJs
 
 _Installation_
 
-cd docker
 docker-compose up -d --build
