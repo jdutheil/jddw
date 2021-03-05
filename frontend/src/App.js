@@ -1,8 +1,11 @@
 import logo from './logo.svg'
-import './App.css'
+
+import Home from './components/home/Home'
+
+import './App.scss'
 
 function App() {
-  return <div className='App'>MyApp </div>
+  return <Home />
 }
 
 export default App
