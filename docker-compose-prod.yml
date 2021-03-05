@@ -32,6 +32,7 @@ services:
     container_name: 'php-fpm'
     build:
       context: ./docker/php
+    restart: always
     environment:
       - APP_ENV=${APP_ENV}
       - APP_SECRET=${APP_SECRET}
@@ -43,6 +44,7 @@ services:
 
   nginx:
     container_name: 'nginx'
+    restart: always
     build:
       context: ./docker/nginx
     volumes:
@@ -58,6 +60,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.prod
+    restart: always
     ports:
       - '80:80'
     volumes:

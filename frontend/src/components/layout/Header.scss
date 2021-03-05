@@ -1,0 +1,57 @@
+#root {
+  .header {
+    background-color: rgba(59, 59, 59, 0.6);
+    position: fixed;
+    z-index: 555;
+    left: 0;
+    top: 0;
+    transition: all 0.35s;
+    width: 100%;
+
+    &__navbar {
+      min-height: 80px;
+      padding: 0;
+    }
+
+    &__logo {
+      display: flex;
+      height: 100%;
+      text-align: center;
+    }
+
+    &__brand {
+      display: flex;
+      align-items: center;
+
+      min-height: 80px;
+      height: 100%;
+      padding: 0 15px;
+
+      background-color: #3b3b3b;
+
+      font-weight: 800;
+      color: #48b7b0;
+      letter-spacing: 1.5px;
+    }
+
+    &__nav-link {
+      position: relative;
+      display: block;
+      text-align: left;
+      font-size: 15px;
+      min-height: 45px;
+      line-height: 45px;
+      padding: 0 15px;
+      font-weight: 600;
+      color: #ffffff;
+
+      &.is-active {
+        color: #48b7b0;
+      }
+
+      &:hover {
+        color: #48b7b0;
+      }
+    }
+  }
+}

@@ -7,3 +7,5 @@ Frontend ReactJs
 _Installation_
 
 docker-compose up -d --build
+
+-f docker-compose-prod.yml pour la production
