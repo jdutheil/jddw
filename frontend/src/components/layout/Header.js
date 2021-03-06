@@ -21,7 +21,7 @@ const Header = () => {
             aria-controls='jddw-navbar'
           />
 
-          <Navbar.Collapse id='jddw-navbar'>
+          <Navbar.Collapse id='jddw-navbar' className='header__nav-collapse'>
             <Nav className=''>
               <Nav.Link className='header__nav-link is-active' href='#'>
                 Accueil

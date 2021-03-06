@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import TypingAnimation from '../animations/TypingAnimation'
+//import TypingAnimation from '../animations/TypingAnimation'
+import TypingAnimation from '@jddw/typing-animation'
 
 import './HomeTitleScreen.scss'
 

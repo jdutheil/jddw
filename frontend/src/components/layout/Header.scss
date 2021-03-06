@@ -1,3 +1,7 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
 #root {
   .header {
     background-color: rgba(59, 59, 59, 0.6);
@@ -51,6 +55,22 @@
 
       &:hover {
         color: #48b7b0;
+      }
+    }
+
+    &__nav-collapse {
+      @include media-breakpoint-up(md) {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        position: fixed;
+        z-index: 1030;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 10%;
+        overflow-y: auto;
+        background-color: #3b3b3b;
+        transition: all 0.5s;
       }
     }
   }

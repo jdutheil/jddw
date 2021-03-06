@@ -4,7 +4,43 @@
 
   padding-top: 100px;
 
-  background-image: url('./img/homeBackground.jpg');
-  background-position: center;
-  background-size: cover;
+  &__fixed-bg {
+    background-image: url('./img/homeBackground.jpg');
+    background-position: center;
+    background-size: cover;
+
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 100;
+
+    background: url('./img/pattern-1.jpg') repeat left top scroll #ffffff;
+    background-attachment: fixed;
+  }
+}
+
+.home-section {
+  &--about {
+    padding-top: 35px;
+  }
+
+  &__title {
+    font-weight: 300;
+    color: #3b3b3b;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  &__text {
+    text-align: justify;
+  }
 }
