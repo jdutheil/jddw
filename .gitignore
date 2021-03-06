@@ -4,3 +4,4 @@
 /node_modules
 /docker/logs/nginx/access.log
 /docker/logs/nginx/error.log
+/frontend/.bit
