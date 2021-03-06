@@ -4,7 +4,7 @@ import './HomeTitleScreen.scss'
 
 const HomeTitleScreen = () => {
   const titles = [
-    'fullstack',
+    'Fullstack',
     'ReactJs',
     'Symfony',
     'HTML5 CSS3',
